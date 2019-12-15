@@ -3,16 +3,22 @@ import '../../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Websites from '../components/Websites'
+import Websites from '../components/Websites/Websites'
 import Frontend from '../components/Websites/Frontend'
+import Language from '../components/Websites/Language'
 
-import MV from '../components/mv'
+import MV from '../components/MV/MV'
 import KLine from '../components/KLine'
+import Home from '../components/Home'
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      component: Home
+    },
     {
       path: '/websites',
       component: Websites,
@@ -21,6 +27,11 @@ export default new Router({
           path: '/websites/frontend',
           component: Frontend,
           name: 'web-frontend'
+        }, {
+          path: '/websites/language',
+          component: Language,
+          name: 'web-language'
+
         }
       ]
     },

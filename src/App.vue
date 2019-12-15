@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" style="background-color: #e3f2fd;">
       <a class="navbar-brand" href="/">Shamrock</a>
       <button class="navbar-toggler" type="button"
               data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -11,13 +11,10 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-fixed-top">
           <li class="nav-item">
-            <router-link class="nav-link active" to="/websites">Websites</router-link>
+            <router-link class="nav-link active" to="/" hidden></router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/mv">MV</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/kline">KLine</router-link>
+          <li class="nav-item" v-for="menu in menus" :key="menu.name">
+            <router-link class="nav-link" :to="menu.path">{{menu.name}}</router-link>
           </li>
         </ul>
         <form class="form-inline flex-row ml-md-auto d-none d-md-flex">
@@ -33,7 +30,23 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data: function () {
+    return {
+      menus: [
+        {
+          name: 'Websites',
+          path: '/websites'
+        }, {
+          name: 'MV',
+          path: '/mv'
+        }, {
+          name: 'KLine',
+          path: '/kline'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -43,5 +56,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  height: 100%;
+  min-height: 100%;
+  background-image: url("/static/img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
 }
 </style>

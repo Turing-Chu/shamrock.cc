@@ -105,3 +105,6 @@ dist
 
 # test
 test/
+
+# big file: video
+/static/video/
