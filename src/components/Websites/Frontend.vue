@@ -44,6 +44,10 @@ export default {
           title: 'WebAssembly',
           imgSrc: 'https://webassembly.org/css/webassembly.svg',
           href: 'https://webassembly.org/'
+        }, {
+          title: 'iView',
+          imgSrc: 'https://file.iviewui.com/icon/viewlogo.png',
+          href: 'https://www.iviewui.com/'
         }
       ]
     }

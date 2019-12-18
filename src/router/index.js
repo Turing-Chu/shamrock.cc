@@ -10,6 +10,7 @@ import Language from '../components/Websites/Language'
 import MV from '../components/MV/MV'
 import KLine from '../components/KLine'
 import Home from '../components/Home'
+import Rust from '../components/Websites/Rust'
 Vue.use(Router)
 
 export default new Router({
@@ -31,7 +32,10 @@ export default new Router({
           path: '/websites/language',
           component: Language,
           name: 'web-language'
-
+        }, {
+          path: '/websites/rust',
+          component: Rust,
+          name: 'web-rust'
         }
       ]
     },
