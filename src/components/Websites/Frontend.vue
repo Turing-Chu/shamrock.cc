@@ -48,6 +48,10 @@ export default {
           title: 'iView',
           imgSrc: 'https://file.iviewui.com/icon/viewlogo.png',
           href: 'https://www.iviewui.com/'
+        }, {
+          title: 'ESLint',
+          imgSrc: 'https://eslint.org/assets/img/logo.svg',
+          href: 'https://eslint.org/'
         }
       ]
     }
