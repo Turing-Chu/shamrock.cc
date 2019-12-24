@@ -3,7 +3,7 @@ node_modules
 /dist
 
 # big file
-/static/video/
+public/static/video/
 
 # local env files
 .env.local
