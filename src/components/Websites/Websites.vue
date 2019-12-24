@@ -8,66 +8,66 @@
       </nav>
     </div>
     <div class="col col-md-11">
-      <router-view style=""></router-view>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import Frontend from './Frontend'
+import Frontend from './Frontend.vue';
 
 export default {
   el: '#Websites',
   name: 'Websites',
   components: [
-    Frontend
+    Frontend,
   ],
-  data: function () {
+  data() {
     return {
       menus: [
         {
           name: 'Frontend',
-          path: '/websites/frontend'
+          path: '/websites/frontend',
         }, {
           name: 'Language',
-          path: '/websites/language'
+          path: '/websites/language',
         }, {
           name: 'Python',
-          path: '/websites/python'
+          path: '/websites/python',
         }, {
           name: 'Rust',
-          path: '/websites/rust'
+          path: '/websites/rust',
         }, {
           name: 'GO',
-          path: '/websites/golang'
+          path: '/websites/golang',
         }, {
           name: 'Database',
-          path: '/websites/database'
+          path: '/websites/database',
         }, {
           name: 'DevOps',
-          path: '/websites/devops'
+          path: '/websites/devops',
         }, {
           name: 'Other',
-          path: '/websites/other'
+          path: '/websites/other',
         }, {
           name: 'Life',
-          path: '/websites/life'
+          path: '/websites/life',
         }, {
           name: 'Shamrock',
-          path: '/websites/shamrock'
+          path: '/websites/shamrock',
         }, {
           name: 'Design',
-          path: '/websites/design'
+          path: '/websites/design',
         }, {
           name: 'BlockChain',
-          path: '/websites/blockchain'
-        }
-      ]
-    }
+          path: '/websites/blockchain',
+        },
+      ],
+    };
   },
   methods: {
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

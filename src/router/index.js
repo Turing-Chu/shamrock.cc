@@ -1,24 +1,19 @@
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../../node_modules/bootstrap/dist/js/bootstrap.min.js'
+import VueRouter from 'vue-router';
+import Websites from '../components/Websites/Websites.vue';
+import Frontend from '../components/Websites/Frontend.vue';
+import Language from '../components/Websites/Language.vue';
 
-import Vue from 'vue'
-import Router from 'vue-router'
-import Websites from '../components/Websites/Websites'
-import Frontend from '../components/Websites/Frontend'
-import Language from '../components/Websites/Language'
+import MV from '../components/MV/MV.vue';
+import KLine from '../components/KLine.vue';
+import Home from '../components/Home.vue';
+import Rust from '../components/Websites/Rust.vue';
 
-import MV from '../components/MV/MV'
-import KLine from '../components/KLine'
-import Home from '../components/Home'
-import Rust from '../components/Websites/Rust'
-Vue.use(Router)
-
-export default new Router({
+const routers = new VueRouter({
   mode: 'history',
   routes: [
     {
       path: '/',
-      component: Home
+      component: Home,
     },
     {
       path: '/websites',
@@ -27,27 +22,29 @@ export default new Router({
         {
           path: '/websites/frontend',
           component: Frontend,
-          name: 'web-frontend'
+          name: 'web-frontend',
         }, {
           path: '/websites/language',
           component: Language,
-          name: 'web-language'
+          name: 'web-language',
         }, {
           path: '/websites/rust',
           component: Rust,
-          name: 'web-rust'
-        }
-      ]
+          name: 'web-rust',
+        },
+      ],
     },
     {
       path: '/mv',
       name: 'MV',
-      component: MV
+      component: MV,
     }, {
       path: '/kline',
       name: 'KLine',
-      component: KLine
-    }
+      component: KLine,
+    },
 
-  ]
-})
+  ],
+});
+
+export default routers;

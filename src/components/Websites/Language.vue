@@ -22,42 +22,42 @@
 <script>
 export default {
   name: 'Language',
-  data: function () {
+  data() {
     return {
       websites: [
         {
           title: 'TIOBE',
           imgSrc: 'https://www.tiobe.com/images/logo.png',
-          href: 'https://www.tiobe.com/tiobe-index/'
+          href: 'https://www.tiobe.com/tiobe-index/',
         }, {
           title: 'Linux',
           imgSrc: 'https://linux.die.net/style/logo.svg',
-          href: 'https://linux.die.net/man/'
+          href: 'https://linux.die.net/man/',
         }, {
           title: 'Swift',
           imgSrc: 'https://swift.org/assets/images/swift.svg',
-          href: 'https://swift.org/'
+          href: 'https://swift.org/',
         }, {
           title: 'Yarn',
           imgSrc: '/static/img/logo/yarn.svg',
-          href: 'https://yarnpkg.com/en/docs/getting-started'
+          href: 'https://yarnpkg.com/en/docs/getting-started',
         }, {
           title: 'Python',
           imgSrc: 'https://www.python.org/static/img/python-logo-large.c36dccadd999.png',
-          href: 'https://docs.python.org/3/py-modindex.html'
+          href: 'https://docs.python.org/3/py-modindex.html',
         }, {
           title: 'Rust',
           imgSrc: 'https://www.rust-lang.org/static/images/rust-logo-blk.svg',
-          href: 'https://www.rust-lang.org/'
+          href: 'https://www.rust-lang.org/',
         }, {
           title: 'Golang',
           imgSrc: 'https://golang.org/lib/godoc/images/home-gopher.png',
-          href: 'https://golang.org/'
-        }
-      ]
-    }
-  }
-}
+          href: 'https://golang.org/',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

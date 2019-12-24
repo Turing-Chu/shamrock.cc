@@ -21,42 +21,42 @@
 <script>
 export default {
   name: 'Frontend',
-  data: function () {
+  data() {
     return {
       websites: [
         {
           title: 'Bootstrap',
           imgSrc: 'https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg',
-          href: 'https://getbootstrap.com/docs/4.4/getting-started/introduction/'
+          href: 'https://getbootstrap.com/docs/4.4/getting-started/introduction/',
         }, {
           title: 'VUE',
           imgSrc: 'https://cn.vuejs.org/images/logo.png',
-          href: 'https://cn.vuejs.org/v2/guide/'
+          href: 'https://cn.vuejs.org/v2/guide/',
         }, {
           title: 'Chart.js',
           imgSrc: 'https://www.chartjs.org/img/chartjs-logo.svg',
-          href: 'http://www.chartjs.org/'
+          href: 'http://www.chartjs.org/',
         }, {
           title: 'Yarn',
           imgSrc: '/static/img/logo/yarn.svg',
-          href: 'https://yarnpkg.com/en/docs/getting-started'
+          href: 'https://yarnpkg.com/en/docs/getting-started',
         }, {
           title: 'WebAssembly',
           imgSrc: 'https://webassembly.org/css/webassembly.svg',
-          href: 'https://webassembly.org/'
+          href: 'https://webassembly.org/',
         }, {
           title: 'iView',
           imgSrc: 'https://file.iviewui.com/icon/viewlogo.png',
-          href: 'https://www.iviewui.com/'
+          href: 'https://www.iviewui.com/',
         }, {
           title: 'ESLint',
           imgSrc: 'https://eslint.org/assets/img/logo.svg',
-          href: 'https://eslint.org/'
-        }
-      ]
-    }
-  }
-}
+          href: 'https://eslint.org/',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

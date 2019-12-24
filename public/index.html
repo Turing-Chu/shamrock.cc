@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>static/img/favicon.ico">
+    <title>www.shamrock.cc</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but www.shamrock.cc doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <footer class="footprint footer position-fixed" style="position: absolute;bottom: 8px;left: 10%;right: 10%">
+      <div class="container text-center">
+        <span>
+          © 2017-<span id="cur_year"></span> www.shamrock.cc All right reserved. 豫ICP备17022405号-2 Email：qishiwenjun@163.com
+        </span>
+      </div>
+    </footer>
+    <script lang="js">
+    document.getElementById("cur_year").innerHTML = function getYear () {
+        return new Date().getFullYear().toString();
+    }()
+  </script>
+  </body>
+</html>

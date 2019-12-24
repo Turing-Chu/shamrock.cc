@@ -1,38 +1,46 @@
-# shamrock
+# www.shamrock.cc
 
-> Shamrock Web based on VUE
+> Shamrock Web based on `vue`,`bootstrap`
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## Create project
+```bash
+vue create wwww.shamrock.cc
+```
+## Project setup
+```bash
+yarn install
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```bash
+yarn serve
+```
 
-## modules
+### Compiles and minifies for production
+```bash
+yarn build
+```
+
+### Lints and fixes files
+```bash
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## main modules
 
 - [bootstrap][bootstrap]
 - [Vue][vue]
+- [vue-router][vue-router]
+- [eslint][eslint]
+- [axios][axios]
+- [chart.js][chart.js]
 
-[bootstrap]: https://getbootstrap.com/docs/4.3/getting-started/introduction/
-[vue]: https://cn.vuejs.org/
+[bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/introduction/
+[vue]: https://vuejs.org/
+[vue-router]: https://router.vuejs.org/
+[eslint]: https://eslint.org/
+[axios]: https://github.com/axios/axios
+[chart.js]: https://www.chartjs.org/
