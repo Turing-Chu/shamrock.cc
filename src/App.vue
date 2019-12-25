@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top"
          style="background-color: #e3f2fd;">
-      <a class="navbar-brand" href="/">Shamrock</a>
+      <a class="navbar-brand font-weight-bolder text-dark" href="/">Shamrock</a>
       <button class="navbar-toggler" type="button"
               data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -15,7 +15,7 @@
             <router-link class="nav-link active" to="/" hidden />
           </li>
           <li class="nav-item" v-for="menu in menus" :key="menu.name">
-            <router-link class="nav-link" :to="menu.path">{{menu.name}}</router-link>
+            <router-link class="nav-link font-weight-bolder" :to="menu.path">{{menu.name}}</router-link>
           </li>
         </ul>
         <form class="form-inline flex-row ml-md-auto d-none d-md-flex">
@@ -63,7 +63,12 @@ export default {
   min-height: 100%;
   background-image: url("../public/static/img/background.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
+  background-size: cover;
+  background-position: center 0;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+
 }
 </style>

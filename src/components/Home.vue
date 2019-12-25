@@ -1,9 +1,11 @@
 <template>
   <div id="Home">
-    <ul>
-      <li><span>
-        To be a person who work at ease, love your job, love your living and continue learning.
-      </span></li>
+    <ul class="text-white">
+      <li>
+        <span>
+          To be a person who work at ease, love your job, love your living and continue learning.
+        </span>
+      </li>
       <li><span>歲月隨心，一切淡然</span></li>
       <li><span>DO NOT forget who you are and remember who you are.</span></li>
       <li><span>Theory guides the practice, and technology changes the world.</span></li>

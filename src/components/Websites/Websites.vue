@@ -3,7 +3,7 @@
     <div class="col col-md-1">
       <nav class="nav flex-column position-fixed btn-light">
         <li class="nav-item" v-bind:class="{ active: menu.name === 'Frontend' }" v-for="menu in menus" :key="`menu=${menu.name}`">
-          <router-link class="nav-link" :to=menu.path>{{menu.name}}</router-link>
+          <router-link class="nav-link font-weight-bolder" :to=menu.path>{{menu.name}}</router-link>
         </li>
       </nav>
     </div>
