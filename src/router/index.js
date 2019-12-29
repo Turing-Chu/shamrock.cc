@@ -1,12 +1,14 @@
 import VueRouter from 'vue-router';
 import Websites from '../components/Websites/Websites.vue';
-import Frontend from '../components/Websites/Frontend.vue';
-import Language from '../components/Websites/Language.vue';
+// import Frontend from '../components/Websites/Frontend.vue';
+// import Language from '../components/Websites/Language.vue';
 
 import MV from '../components/MV/MV.vue';
 import KLine from '../components/KLine.vue';
 import Home from '../components/Home.vue';
-import Rust from '../components/Websites/Rust.vue';
+import WebsiteTemplate from '../components/Websites/WebsiteTemplate.vue';
+// import Rust from '../components/Websites/Rust.vue';
+import AddWebsite from '../components/Websites/Add.vue';
 
 const routers = new VueRouter({
   mode: 'history',
@@ -18,7 +20,17 @@ const routers = new VueRouter({
     {
       path: '/websites',
       component: Websites,
-      children: [
+      children: [{
+        path: '/websites/:website',
+        component: WebsiteTemplate,
+        name: 'template',
+      }, {
+        path: '/websites/add',
+        component: AddWebsite,
+        name: 'add-website',
+
+      }],
+      /* children: [
         {
           path: '/websites/frontend',
           component: Frontend,
@@ -31,8 +43,13 @@ const routers = new VueRouter({
           path: '/websites/rust',
           component: Rust,
           name: 'web-rust',
+        }, {
+          path: '/websites/add',
+          component: Add,
+          name: '/websites/add',
         },
       ],
+      */
     },
     {
       path: '/mv',
@@ -43,7 +60,7 @@ const routers = new VueRouter({
       name: 'KLine',
       component: KLine,
     },
-
+    { path: '*', component: Home },
   ],
 });
 

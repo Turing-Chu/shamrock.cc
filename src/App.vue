@@ -26,7 +26,7 @@
         </form>
       </div>
     </nav>
-    <router-view class="container-fluid" />
+    <router-view class="container-fluid" style="margin-top: 5px"/>
   </div>
 </template>
 

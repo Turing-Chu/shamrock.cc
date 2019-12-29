@@ -33,6 +33,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - [bootstrap][bootstrap]
 - [Vue][vue]
+- [vuex][vuex]
 - [vue-router][vue-router]
 - [eslint][eslint]
 - [axios][axios]
@@ -41,6 +42,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 [bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/introduction/
 [vue]: https://vuejs.org/
 [vue-router]: https://router.vuejs.org/
+[vuex]: 
 [eslint]: https://eslint.org/
 [axios]: https://github.com/axios/axios
 [chart.js]: https://www.chartjs.org/
