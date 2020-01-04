@@ -1,10 +1,16 @@
 <template>
-  <div id="Websites" class="row row-cols-2">
+  <div id="Websites" class="row row-cols-2" style="width: 100%">
     <div class="col col-md-1">
       <nav class="nav flex-column position-fixed btn-light">
         <li class="nav-item" v-bind:class="{ active: index === 0 }"
-            v-for="(menu, index) in menus" :key="`menu=${menu.id}`">
-          <router-link active-class="router-link-active" class="nav-link font-weight-bolder" :to="menu.path|toLowerCase">{{menu.name}}</router-link>
+            v-for="(menu, index) in menus" :key="index">
+          <router-link
+              active-class="router-link-active"
+              class="nav-link font-weight-bolder"
+              :to="menu.path|toLowerCase"
+              v-on:click.native="addTypeWeight(menu.name)">
+            {{menu.name}}
+          </router-link>
         </li>
       </nav>
     </div>
@@ -24,6 +30,10 @@ export default {
     };
   },
   methods: {
+    addTypeWeight(type) {
+      this.$store.dispatch('addTypeWeight', { name: type }).then(() => {});
+    },
+
     loadTypes() {
       this.$store.dispatch('loadTypes').then((resp) => {
         this.menus = resp.data;
@@ -31,6 +41,8 @@ export default {
           // eslint-disable-next-line no-param-reassign
           item.path = `/websites/${String(item.name).toLowerCase()}`;
         });
+      }).catch((err) => {
+        console.log(err);
       });
     },
   },
@@ -39,7 +51,7 @@ export default {
       return String(name).toLowerCase();
     },
   },
-  mounted() {
+  created() {
     this.loadTypes();
   },
 };

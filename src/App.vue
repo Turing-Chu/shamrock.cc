@@ -39,7 +39,7 @@ export default {
       menus: [
         {
           name: 'Websites',
-          path: '/websites',
+          path: '/websites/frontend',
         }, {
           name: 'MV',
           path: '/mv',

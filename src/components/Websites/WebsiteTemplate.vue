@@ -18,7 +18,7 @@
       <div class="card mb-3" style="max-width: 540px">
         <router-link class="row no-gutters" to="add">
           <div class="col-md-4">
-            <img class="rounded" src="src/assets/add-button.svg" alt="add websites" width="80" height="80">
+            <img class="rounded" src="/static/img/logo/add-button.svg" alt="add websites" width="80" height="80">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -71,43 +71,14 @@ export default {
       type: '',
       menus: [],
       websites: [],
-      /* websites: [
-        {
-          title: 'Bootstrap',
-          imgSrc: 'https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg',
-          href: 'https://getbootstrap.com/docs/4.4/getting-started/introduction/',
-        }, {
-          title: 'VUE',
-          imgSrc: 'https://cn.vuejs.org/images/logo.png',
-          href: 'https://cn.vuejs.org/v2/guide/',
-        }, {
-          title: 'Chart.js',
-          imgSrc: 'https://www.chartjs.org/img/chartjs-logo.svg',
-          href: 'http://www.chartjs.org/',
-        }, {
-          title: 'Yarn',
-          imgSrc: '/static/img/logo/yarn.svg',
-          href: 'https://yarnpkg.com/en/docs/getting-started',
-        }, {
-          title: 'WebAssembly',
-          imgSrc: 'https://webassembly.org/css/webassembly.svg',
-          href: 'https://webassembly.org/',
-        }, {
-          title: 'iView',
-          imgSrc: 'https://file.iviewui.com/icon/viewlogo.png',
-          href: 'https://www.iviewui.com/',
-        }, {
-          title: 'ESLint',
-          imgSrc: 'https://eslint.org/assets/img/logo.svg',
-          href: 'https://eslint.org/',
-        },
-      ], */
     };
   },
   methods: {
     save() {
+      console.log(111);
+      // eslint-disable-next-line no-unused-vars
       this.$store.dispatch('addWebsite').then((resp) => {
-        console.log(resp.data);
+        this.$router.push('https://www.baidu.com/');
       });
     },
     loadTypes() {
@@ -123,14 +94,15 @@ export default {
     addWebWeight() {
       this.$store.dispatch('addWebWeight').then(() => {});
     },
+    getType(path) {
+      const splitTo = String(path).split('/');
+      return splitTo[splitTo.length - 1].toLowerCase();
+    },
   },
   watch: {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
-      const splitTo = String(to.path).split('/');
-
-      const type = splitTo[splitTo.length - 1].toLowerCase();
-      console.log(type);
+      const type = this.getType(to.path);
       if (type === 'add') {
         this.type = 'add';
         this.loadTypes();
@@ -141,7 +113,7 @@ export default {
     },
   },
   created() {
-    this.loadWebsites('frontend');
+    this.loadWebsites(this.getType(this.$route.path));
   },
 };
 </script>

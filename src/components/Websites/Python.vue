@@ -26,10 +26,6 @@ export default {
     return {
       websites: [
         {
-          title: 'TIOBE',
-          imgSrc: 'https://www.tiobe.com/images/logo.png',
-          href: 'https://www.tiobe.com/tiobe-index/',
-        }, {
           title: 'Linux',
           imgSrc: 'https://linux.die.net/style/logo.svg',
           href: 'https://linux.die.net/man/',
