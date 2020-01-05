@@ -2,7 +2,7 @@
   <div id="Websites" class="row row-cols-2" style="width: 100%">
     <div class="col col-md-1">
       <nav class="nav flex-column position-fixed btn-light">
-        <li class="nav-item" v-bind:class="{ active: index === 0 }"
+        <li class="nav-item text-left" v-bind:class="{ active: index === 0 }"
             v-for="(menu, index) in menus" :key="index">
           <router-link
               active-class="router-link-active"
