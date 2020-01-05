@@ -3,7 +3,7 @@
     <div v-if="this.type !== 'add'" class="row row-cols-6">
       <div class="col-sm-2" v-for="item in websites" :key="item.href">
         <div class="card mb-3" style="max-width: 540px">
-          <a class="row no-gutters" target="_blank" :href=item.href v-on:click="addWebWeight">
+          <a class="row no-gutters" target="_blank" :href=item.href v-on:click="addWebWeight(item.type, item.id)">
             <div class="col-md-4">
               <img class="rounded" :src=item.img_src alt="" width="80" height="80">
             </div>
@@ -75,7 +75,6 @@ export default {
   },
   methods: {
     save() {
-      console.log(111);
       // eslint-disable-next-line no-unused-vars
       this.$store.dispatch('addWebsite').then((resp) => {
         this.$router.push('https://www.baidu.com/');
@@ -91,13 +90,14 @@ export default {
         this.websites = resp.data;
       });
     },
-    addWebWeight() {
-      this.$store.dispatch('addWebWeight').then(() => {});
+    addWebWeight(type, id) {
+      this.$store.dispatch('addWebWeight', { type, id }).then(() => {});
     },
     getType(path) {
       const splitTo = String(path).split('/');
       return splitTo[splitTo.length - 1].toLowerCase();
     },
+
   },
   watch: {
     // eslint-disable-next-line no-unused-vars

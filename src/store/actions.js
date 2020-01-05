@@ -32,19 +32,19 @@ const actions = {
       });
     });
   },
-  addWebWeight(params) {
+  addTypeWeight(context, params) {
     return new Promise((resolve, reject) => {
-      const url = `/api/v1/websites/${params.item}`;
-      axios.get(url).then((response) => {
+      const url = `/api/v1/websites?type=${params.name}`;
+      axios.put(url).then((response) => {
         resolve(response.data);
       }).catch((error) => {
         reject(error);
       });
     });
   },
-  addTypeWeight(context, params) {
+  addWebWeight(context, params) {
     return new Promise((resolve, reject) => {
-      const url = `/api/v1/websites?type=${params.name}`;
+      const url = `/api/v1/websites/${params.type}/${params.id}`;
       axios.put(url).then((response) => {
         resolve(response.data);
       }).catch((error) => {
