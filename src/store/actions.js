@@ -22,10 +22,9 @@ const actions = {
     });
   },
   addWebsite(context, params) {
-    console.log(params);
     return new Promise((resolve, reject) => {
-      const url = `/api/v1/websites/${params.name}/`;
-      axios.post(url).then((response) => {
+      const url = `/api/v1/websites/${params.type}`;
+      axios.post(url, params).then((response) => {
         resolve(response.data);
       }).catch((error) => {
         reject(error);

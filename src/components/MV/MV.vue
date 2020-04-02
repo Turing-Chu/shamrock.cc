@@ -1,15 +1,12 @@
 <template>
-  <div id="MV" class="row row-cols-4">
-    <div class="col col-md-3" v-for="mv in mvs" :key="mv.name">
-      <a class="card" target="_blank" :href="mv.path">
-        <img class="card-img-top" :src="mv.imgSrc" height="300" :alt="mv.name">
-        <div class="card-body">
-          <h5 class="card-title">{{mv.name}}</h5>
-        </div>
+  <b-row id="MV" cols="4">
+    <b-col md="3" v-for="mv in mvs" :key="mv.name">
+      <a target="_blank" :href="mv.path">
+        <b-card :title=mv.name img-height="300" :img-src=mv.imgSrc :img-alt=mv.name img-top />
       </a>
-    </div>
+    </b-col>
 
-  </div>
+  </b-row>
 </template>
 
 <script>

@@ -3,6 +3,8 @@ import Websites from '../components/Websites/Websites.vue';
 import MV from '../components/MV/MV.vue';
 import KLine from '../components/KLine.vue';
 import Home from '../components/Home.vue';
+import Menus from '../components/blog/Menus.vue';
+
 import WebsiteTemplate from '../components/Websites/WebsiteTemplate.vue';
 
 const routers = new VueRouter({
@@ -29,6 +31,11 @@ const routers = new VueRouter({
       path: '/kline',
       name: 'KLine',
       component: KLine,
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: Menus,
     },
     { path: '*', component: Home },
   ],

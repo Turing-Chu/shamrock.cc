@@ -46,6 +46,9 @@ export default {
         }, {
           name: 'KLine',
           path: '/kline',
+        }, {
+          name: 'Blog',
+          path: '/blog',
         },
       ],
     };

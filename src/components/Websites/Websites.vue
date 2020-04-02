@@ -1,8 +1,8 @@
 <template>
-  <div id="Websites" class="row row-cols-2" style="width: 100%">
-    <div class="col col-md-1">
-      <nav class="nav flex-column position-fixed btn-light">
-        <li class="nav-item text-left" v-bind:class="{ active: index === 0 }"
+  <b-row cols="2" id="Websites" style="width: 100%">
+    <b-col md=true>
+      <b-nav class="flex-column position-fixed btn-light">
+        <b-nav-item class="text-left" v-bind:class="{ active: index === 0 }"
             v-for="(menu, index) in menus" :key="index">
           <router-link
               active-class="router-link-active"
@@ -11,13 +11,13 @@
               v-on:click.native="addTypeWeight(menu.name)">
             {{menu.name}}
           </router-link>
-        </li>
-      </nav>
-    </div>
-    <div class="col col-md-11" style="margin-left: 10%">
+        </b-nav-item>
+      </b-nav>
+    </b-col>
+    <b-col md="11" style="margin-left: 10%">
       <router-view />
-    </div>
-  </div>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

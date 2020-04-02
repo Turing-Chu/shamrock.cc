@@ -7,6 +7,15 @@
     </div>
     <div>{{ coinPair }} {{group}}{{range}}</div>
     <canvas id="planet-chart" />
+    <div class="row">
+      <div class="col-2">
+        <input required type="text" v-on:blur="check(moddel)" value="" :v-model="moddel" placeholder="提示符">
+      </div>
+
+    </div>
+    <div>
+      3333{{moddel}}
+    </div>
   </div>
 </template>
 
@@ -18,6 +27,7 @@ export default {
   data() {
     return {
       info: null,
+      moddel: '',
       coinPair: 'btc_usdt',
       group: 1,
       range: 1,
@@ -45,6 +55,12 @@ export default {
     };
   },
   methods: {
+    check(value) {
+      if (!value.startsWith('http')) {
+        console.log(222);
+        this.moddel = '';
+      }
+    },
     draw(dataset, labels) {
       const ctx = document.getElementById('planet-chart');
       const data = {
@@ -105,10 +121,24 @@ export default {
     addData(key, data) {
       this.klineData[key].push(data);
     },
+    func(value) {
+      if (value.startsWith('http://')) {
+        return value;
+      }
+      return 'AAA';
+    },
   },
   mounted() {
     this.loadData();
     this.draw(this.klineData.open, this.klineData.timeStr);
+  },
+  filter: {
+    func(value) {
+      if (value.startsWith('http://')) {
+        return value;
+      }
+      return 'AAA';
+    },
   },
   computed: {
     // https://cn.vuejs.org/v2/guide/computed.html

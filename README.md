@@ -46,3 +46,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 [eslint]: https://eslint.org/
 [axios]: https://github.com/axios/axios
 [chart.js]: https://www.chartjs.org/
+
+## FAQ
+
+- form表单绑定不了数据: :v-model 改为 v-model
+- 点击save 提示`POST http://localhost:8080/v1/websites/devops` 前端端口, 问题定位： action请求后台接口时后面带了`/`
+
