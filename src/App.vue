@@ -31,26 +31,22 @@
 </template>
 
 <script>
+import { RoutersList } from './router/index';
 
 export default {
   name: 'App',
   data() {
+    const menus = [];
+    RoutersList.forEach((menu) => {
+      if (menu.name !== '') {
+        menus.push({
+          name: menu.name,
+          path: menu.path,
+        });
+      }
+    });
     return {
-      menus: [
-        {
-          name: 'Websites',
-          path: '/websites/frontend',
-        }, {
-          name: 'MV',
-          path: '/mv',
-        }, {
-          name: 'KLine',
-          path: '/kline',
-        }, {
-          name: 'Blog',
-          path: '/blog',
-        },
-      ],
+      menus,
     };
   },
 };

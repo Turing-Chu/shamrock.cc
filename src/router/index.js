@@ -4,41 +4,52 @@ import MV from '../components/MV/MV.vue';
 import KLine from '../components/KLine.vue';
 import Home from '../components/Home.vue';
 import Menus from '../components/blog/Menus.vue';
-
+import About from '../components/About.vue';
 import WebsiteTemplate from '../components/Websites/WebsiteTemplate.vue';
 
+const RoutersList = [
+  {
+    path: '/',
+    name: '',
+    component: Home,
+  },
+  {
+    path: '/websites',
+    name: 'Websites',
+    component: Websites,
+    children: [{
+      path: '/websites/:website',
+      component: WebsiteTemplate,
+      name: 'template',
+    }],
+  },
+  {
+    path: '/mv',
+    name: 'MV',
+    component: MV,
+  }, {
+    path: '/kline',
+    name: 'KLine',
+    component: KLine,
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: Menus,
+  },
+  {
+    path: '/aboutme',
+    name: 'About',
+    component: About,
+  },
+  { path: '*', name: '', component: Home },
+]
 const routers = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      component: Home,
-    },
-    {
-      path: '/websites',
-      component: Websites,
-      children: [{
-        path: '/websites/:website',
-        component: WebsiteTemplate,
-        name: 'template',
-      }],
-    },
-    {
-      path: '/mv',
-      name: 'MV',
-      component: MV,
-    }, {
-      path: '/kline',
-      name: 'KLine',
-      component: KLine,
-    },
-    {
-      path: '/blog',
-      name: 'Blog',
-      component: Menus,
-    },
-    { path: '*', component: Home },
-  ],
+  routes: RoutersList,
 });
 
 export default routers;
+export {
+  RoutersList,
+}

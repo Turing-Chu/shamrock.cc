@@ -33,7 +33,6 @@ export default {
     addTypeWeight(type) {
       this.$store.dispatch('addTypeWeight', { name: type }).then(() => {});
     },
-
     loadTypes() {
       this.$store.dispatch('loadTypes').then((resp) => {
         this.menus = resp.data;

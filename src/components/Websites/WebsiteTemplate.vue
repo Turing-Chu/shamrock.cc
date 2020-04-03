@@ -1,6 +1,6 @@
 <template>
   <div id="WebsiteTemplate">
-    <b-row cols="6" v-if="this.type !== 'add'">
+    <b-row cols="6">
       <b-col sm="2" v-for="item in websites" :key="item.href">
         <b-card class=" mb-3" style="width: 98%; height: 80%">
           <b-link class="row no-gutters" target="_blank" :href=item.href
@@ -16,42 +16,45 @@
           </b-link>
         </b-card>
       </b-col>
-      <b-card mb="3" style="max-width: 540px">
-        <router-link class="row no-gutters" to="add">
-          <b-col md="4">
-            <b-img rounded="true" src="/static/img/logo/add-button.svg" alt="add websites" width="80"
-                   height="80"/>
+      <b-card class=" mb-3" style="width: 98%; height: 80%">
+        <b-row no-gutters>
+          <b-col md="6">
+            <b-card-img rounded="true" alt="add websites" src="/static/img/logo/add-button.svg"/>
           </b-col>
-          <b-col md="8">
+          <b-col md="6">
             <b-card-body>
-              <b-card-text text-tag="h5" class="justify-content-center">Add</b-card-text>
+              <b-button variant="primary" v-on:click="loadTypes" v-b-modal.AddWebsite>Add</b-button>
             </b-card-body>
           </b-col>
-        </router-link>
+        </b-row>
       </b-card>
     </b-row>
-    <b-card id="AddWebsite" v-else class="mb-3" bg-variant="light" style="width: 50%; height:100%;">
-      <b-card-body title="Add website">
-        <b-form @submit="save">
-          <b-form-group label="Type: " label-cols-lg="3" label-size="lg" label-class="font-weight-bold pt-0"
-                        class="mb-1">
-            <b-form-select v-model="addForm.type" :options="menus"></b-form-select>
-          </b-form-group>
-          <b-form-group label="Title: " label-cols-sm="3" label-size="sm" label-class="font-weight-bold pt-0"
-                        class="mb-1">
-            <b-form-input v-model=addForm.title placeholder="Enter Website Title"></b-form-input>
-          </b-form-group>
-          <b-form-group label="Image link: " label-cols-sm="3" label-size="sm"
-                        label-class="font-weight-bold pt-0" class="mb-1">
-            <b-form-input v-model=addForm.img_src placeholder="Enter Website icon link"></b-form-input>
-          </b-form-group>
-          <b-form-group label="Website: " label-cols-sm="3" label-size="sm"
-                        label-class="font-weight-bold pt-0" class="mb-1">
-            <b-form-input v-model=addForm.title placeholder="Enter website address"></b-form-input>
-          </b-form-group>
-        </b-form>
-      </b-card-body>
-    </b-card>
+    <b-modal id="AddWebsite" hide-footer title="Add website">
+      <b-form @submit="save">
+        <b-form-group label="Type: " label-cols-lg="3" label-size="lg" label-class="font-weight-bold pt-0"
+                      class="mb-1">
+          <b-form-select v-model="addForm.type" :options="menus"></b-form-select>
+        </b-form-group>
+        <b-form-group label="Title: " label-cols-lg="3" label-size="lg" label-class="font-weight-bold pt-0"
+                      class="mb-1">
+          <b-form-input v-model=addForm.title placeholder="Enter Website Title"></b-form-input>
+        </b-form-group>
+        <b-form-group label="Image link: " label-cols-lg="3" label-size="lg"
+                      label-class="font-weight-bold pt-0" class="mb-1">
+          <b-form-input v-model=addForm.img_src placeholder="Enter Website icon link"></b-form-input>
+        </b-form-group>
+        <b-form-group label="Website: " label-cols-lg="3" label-size="lg"
+                      label-class="font-weight-bold pt-0" class="mb-1">
+          <b-form-input v-model=addForm.href placeholder="Enter website address"></b-form-input>
+        </b-form-group>
+        <b-form-group>
+          <b-row class="justify-content-md-center">
+            <b-button pill type="submit" v-on:click="save" size="lg" variant="primary">Save</b-button>
+            <b-button pill type="reset" v-on:reset="reset" size="lg" variant="dark">Reset</b-button>
+          </b-row>
+        </b-form-group>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -59,7 +62,6 @@ export default {
   name: 'WebsiteTemplate',
   data() {
     return {
-      type: '',
       menus: [],
       websites: [],
       lastPath: '', // ??
@@ -72,13 +74,12 @@ export default {
     };
   },
   methods: {
+    // eslint-disable-next-line no-unused-vars
     save(e) {
-      this.addForm.type = this.addForm.type.toLowerCase();
       // eslint-disable-next-line no-unused-vars
       this.$store.dispatch('addWebsite', this.addForm).then((resp) => {
-        this.$router.push({ path: 'frontend' });
       });
-      e.preventDefault();
+      this.$router.push({ path: `/websites/${this.addForm.toLowerCase()}` });
     },
     reset(e) {
       e.preventDefault();
@@ -107,20 +108,6 @@ export default {
     getType(path) {
       const splitTo = String(path).split('/');
       return splitTo[splitTo.length - 1].toLowerCase();
-    },
-  },
-  watch: {
-    $route(to, from) {
-      const type = this.getType(to.path);
-      this.lastPath = from.path;
-      console.log(from.path);
-      if (type === 'add') {
-        this.type = 'add';
-        this.loadTypes();
-      } else {
-        this.type = '';
-        this.loadWebsites(type);
-      }
     },
   },
   created() {

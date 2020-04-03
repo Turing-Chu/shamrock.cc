@@ -23,7 +23,7 @@ const actions = {
   },
   addWebsite(context, params) {
     return new Promise((resolve, reject) => {
-      const url = `/api/v1/websites/${params.type}`;
+      const url = `/api/v1/websites/${params.type.toLowerCase()}`;
       axios.post(url, params).then((response) => {
         resolve(response.data);
       }).catch((error) => {
