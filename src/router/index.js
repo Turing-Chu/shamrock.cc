@@ -5,6 +5,8 @@ import KLine from '../components/KLine.vue';
 import Home from '../components/Home.vue';
 import Menus from '../components/blog/Menus.vue';
 import About from '../components/About.vue';
+import Images from '../components/Pictures/Images.vue';
+import Manjusaka from '../components/Pictures/Manjusaka.vue';
 import WebsiteTemplate from '../components/Websites/WebsiteTemplate.vue';
 
 const RoutersList = [
@@ -38,12 +40,22 @@ const RoutersList = [
     component: Menus,
   },
   {
-    path: '/aboutme',
+    path: '/pictures',
+    name: 'Pictures',
+    component: Images,
+    children: [{
+      path: '/pictures/manjusaka',
+      component: Manjusaka,
+      name: 'Manjusaka',
+    }],
+  },
+  {
+    path: '/about-me',
     name: 'About',
     component: About,
   },
   { path: '*', name: '', component: Home },
-]
+];
 const routers = new VueRouter({
   mode: 'history',
   routes: RoutersList,
@@ -52,4 +64,4 @@ const routers = new VueRouter({
 export default routers;
 export {
   RoutersList,
-}
+};

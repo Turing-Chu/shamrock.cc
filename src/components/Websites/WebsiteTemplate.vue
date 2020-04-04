@@ -33,7 +33,7 @@
       <b-form @submit="save">
         <b-form-group label="Type: " label-cols-lg="3" label-size="lg" label-class="font-weight-bold pt-0"
                       class="mb-1">
-          <b-form-select v-model="addForm.type" :options="menus"></b-form-select>
+          <b-form-select v-model="addForm.type" :value="addForm.type" :options="menus"></b-form-select>
         </b-form-group>
         <b-form-group label="Title: " label-cols-lg="3" label-size="lg" label-class="font-weight-bold pt-0"
                       class="mb-1">
@@ -62,6 +62,10 @@ export default {
   name: 'WebsiteTemplate',
   data() {
     return {
+      alerts: {
+        show: false,
+        message: '',
+      },
       menus: [],
       websites: [],
       lastPath: '', // ??
@@ -78,8 +82,9 @@ export default {
     save(e) {
       // eslint-disable-next-line no-unused-vars
       this.$store.dispatch('addWebsite', this.addForm).then((resp) => {
+        console.log(Date.now());
       });
-      this.$router.push({ path: `/websites/${this.addForm.toLowerCase()}` });
+      this.$router.push({ path: `/websites/${this.addForm.type.toLowerCase()}` });
     },
     reset(e) {
       e.preventDefault();
@@ -90,14 +95,17 @@ export default {
       this.addForm.href = '';
     },
     loadTypes() {
+      if (this.websites.length > 0) {
+        this.addForm.type = this.websites[0].type;
+      }
       this.$store.dispatch('loadTypes').then((resp) => {
         resp.data.forEach((item) => {
           this.menus.push({ value: item.name, text: item.name, weight: item.weight });
         });
       });
     },
-    loadWebsites(type) {
-      this.$store.dispatch({ type: 'loadWebsites', item: String(type).toLowerCase() }).then((resp) => {
+    loadWebsites(types) {
+      this.$store.dispatch({ type: 'loadWebsites', item: String(types).toLowerCase() }).then((resp) => {
         this.websites = resp.data;
       });
     },
